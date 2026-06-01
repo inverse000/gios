@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import {
+UsuarioService
+}
+from '../../services/usuario';
 
 import {
 
@@ -32,5 +37,42 @@ correo:string='';
 password:string='';
 
 mostrarPassword:boolean=false;
+
+mensajeError = '';
+
+constructor(
+
+private router:Router,
+
+private usuarioService:UsuarioService
+
+){}
+
+iniciarSesion(){
+
+const usuario =
+this.usuarioService.validarLogin(
+
+this.correo,
+this.password
+
+);
+
+if(usuario){
+
+this.mensajeError = '';
+
+this.router.navigate([
+'/stock'
+]);
+
+return;
+
+}
+
+this.mensajeError =
+'Correo o contraseña incorrectos';
+
+}
 
 }

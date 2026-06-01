@@ -5,7 +5,10 @@ import { Router } from '@angular/router';
 import {
 InventarioService
 } from '../../services/inventario';
-
+import {
+UsuarioService
+}
+from '../../services/usuario';
 import {
 
 IonContent,

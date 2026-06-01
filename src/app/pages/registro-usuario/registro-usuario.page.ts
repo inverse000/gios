@@ -2,6 +2,14 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+
+import { Router } from '@angular/router';
+
+import {
+UsuarioService
+}
+from '../../services/usuario';
+
 import {
 
 IonContent,
@@ -42,6 +50,8 @@ IonSelectOption
 
 })
 
+
+
 export class RegistroUsuarioPage {
 
 nombre='';
@@ -49,5 +59,35 @@ correo='';
 password='';
 telefono='';
 rol='';
+
+constructor(
+
+private router:Router,
+
+private usuarioService:UsuarioService
+
+){}
+
+guardarUsuario(){
+
+this.usuarioService.guardarUsuario({
+
+nombre:this.nombre,
+
+correo:this.correo,
+
+password:this.password,
+
+telefono:this.telefono,
+
+rol:this.rol
+
+});
+
+this.router.navigate([
+'/registro-insumo'
+]);
+
+}
 
 }

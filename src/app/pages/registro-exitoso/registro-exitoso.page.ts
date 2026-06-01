@@ -36,7 +36,7 @@ private router:Router
 volverLogin(){
 
 this.router.navigate(
-['/login']
+['/stock']
 );
 
 }
