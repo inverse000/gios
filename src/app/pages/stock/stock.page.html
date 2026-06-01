@@ -29,7 +29,7 @@ class="insumo-card"
 
 <div class="emoji">
 
-{{item.icono}}
+{{obtenerIcono(item.categoria)}}
 
 </div>
 
@@ -43,7 +43,7 @@ class="insumo-card"
 
 <p>
 
-{{item.codigo}}
+{{item.id}}
 
 </p>
 
@@ -97,7 +97,7 @@ Editar
 
 <ion-button
 size="small"
-color="danger">
+color="danger" (click)="eliminarInsumo(item.id)">
 
 Eliminar
 

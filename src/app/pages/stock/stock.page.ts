@@ -3,6 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import {
+InventarioService,
+Insumo
+}
+from '../../services/inventario';
+
+import {
 IonContent,
 IonItem,
 IonInput,
@@ -35,46 +41,24 @@ export class StockPage {
 
 busqueda='';
 
-insumos=[
+insumos:Insumo[]=[];
 
-{
-codigo:'INS001',
-nombre:'Tomate',
-categoria:'Verduras',
-cantidad:25,
-unidad:'Kg',
-icono:'🥬'
-},
+constructor(
+private inventarioService:InventarioService
+){}
 
-{
-codigo:'INS002',
-nombre:'Pollo',
-categoria:'Carnes',
-cantidad:50,
-unidad:'Kg',
-icono:'🍗'
-},
+ionViewWillEnter(){
 
-{
-codigo:'INS003',
-nombre:'Aceite',
-categoria:'Insumos',
-cantidad:12,
-unidad:'Litros',
-icono:'🛢️'
-},
+this.cargarInsumos();
 
-{
-codigo:'INS004',
-nombre:'Arroz',
-categoria:'Granos',
-cantidad:40,
-unidad:'Kg',
-icono:'🌾'
 }
 
-];
+cargarInsumos(){
 
+this.insumos =
+this.inventarioService.obtenerInsumos();
+
+}
 
 obtenerEstado(cantidad:number){
 
@@ -112,6 +96,38 @@ return 'estado-normal';
 
 }
 
+eliminarInsumo(id:number){
+
+this.inventarioService.eliminarInsumo(
+id
+);
+
+this.cargarInsumos();
+
 }
 
+obtenerIcono(categoria:string){
+
+switch(categoria){
+
+case 'Verduras':
+return '🥬';
+
+case 'Carnes':
+return '🍗';
+
+case 'Bebidas':
+return '🥤';
+
+case 'Granos':
+return '🌾';
+
+default:
+return '📦';
+
+}
+
+}
+
+}
 

@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import {
+InventarioService
+} from '../../services/inventario';
 
 import {
 
@@ -46,14 +49,29 @@ unidad='';
 fecha='';
 
 constructor(
-private router:Router
+private router:Router,
+private inventarioService:InventarioService
 ){}
 
-irExitoso(){
+guardarInsumo(){
 
-this.router.navigate(
-['/registro-exitoso']
-);
+this.inventarioService.guardarInsumo({
+
+nombre:this.nombre,
+
+categoria:this.categoria,
+
+cantidad:Number(this.cantidad),
+
+unidad:this.unidad,
+
+fecha:this.fecha
+
+});
+
+this.router.navigate([
+'/registro-exitoso'
+]);
 
 }
 
