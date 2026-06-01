@@ -35,3 +35,41 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+body{
+
+font-family:Arial, sans-serif;
+
+background:#0f2b7a;
+
+}
+
+.page-background{
+
+--background:url('/assets/backgrounds/fondo-azul.jpg');
+
+background-size:cover;
+
+background-position:center;
+
+}
+
+.custom-card{
+
+background:rgba(255,255,255,0.1);
+
+backdrop-filter:blur(10px);
+
+border-radius:20px;
+
+padding:15px;
+
+}
+
+.custom-input{
+
+border-radius:12px;
+
+margin-bottom:15px;
+
+}

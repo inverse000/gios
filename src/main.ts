@@ -5,6 +5,25 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalo
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 
+import { addIcons } from 'ionicons';
+import {
+
+mail,
+lockClosed,
+eye,
+eyeOff,
+alertCircle
+
+} from 'ionicons/icons';
+addIcons({
+
+mail,
+lockClosed,
+eye,
+eyeOff,
+alertCircle
+
+});
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
